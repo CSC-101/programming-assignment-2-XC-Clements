@@ -70,6 +70,23 @@ print(running_time(list_of_songs, [0,1,1,3,2]))
 
 
 # Part 5
+#takes a list of linked cities and a route, and if the route is possible based on the links, outputs True
+def validate_route(city_links:[list[list[str]]], route:list[str]):
+    for i in range(len(route) -1):
+        l = [route[i], route[i+1]]
+        x = [route[i+1], route[i]]
+        if [route[i], route[i+1]] not in linked_cities and [route[i+1], route[i]] not in linked_cities:
+            return False
+    else:
+        return True
 
+
+
+linked_cities = [['san luis obispo', 'santa margarita'],
+    ['san luis obispo', 'pismo beach'],
+    ['atascadero', 'santa margarita'],
+    ['atascadero', 'creston']]
+print(validate_route(linked_cities, ['san luis obispo', 'atascadero']))
 
 # Part 6
+def

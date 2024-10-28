@@ -2,8 +2,8 @@ import data
 import hw2
 import unittest
 
-from data import Point, Rectangle, Duration
-from hw2 import create_rectangle, shorter_duration_than, running_time, list_of_songs
+from data import Point, Rectangle, Duration, Song
+from hw2 import create_rectangle, shorter_duration_than, running_time, list_of_songs, song_shorter_than, validate_route, linked_cities
 
 
 # Write your test cases for each part below.
@@ -26,15 +26,21 @@ class TestCases(unittest.TestCase):
         dur_2 = Duration(5, 20)
         self.assertEqual(shorter_duration_than(dur_1,dur_2), False)
     # Part 3
+    def test_song_shorter_than_1(self):
+        self.assertEqual(song_shorter_than(list_of_songs, Duration(4, 0)), [Song('Earth, Wind & Fire', 'September', Duration(3, 35)), Song('Kesha', 'Blow', Duration(3, 39)), Song('Fountains of Wayne', "Stacy's Mom", Duration(3, 17))])
+    def test_song_shorter_than_2(self):
+        self.assertEqual(song_shorter_than(list_of_songs, Duration(2, 0)), [])
+    # Part 4
     def test_running_time_1(self):
         self.assertEqual(running_time(list_of_songs, [0, 1, 1, 3, 2]), Duration(20, 13))
     def test_running_time_2(self):
         self.assertEqual(running_time(list_of_songs, [0]), Duration(3, 35))
-    # Part 4
-
 
     # Part 5
-
+    def test_validate_route_1(self):
+        self.assertEqual(validate_route(linked_cities, ['san luis obispo', 'atascadero']), False)
+    def test_validate_route_2(self):
+        self.assertEqual(validate_route(linked_cities, ['san luis obispo', 'santa margarita', 'atascadero']), True)
 
     # Part 6
 
