@@ -113,3 +113,4 @@ def longest_repetition(int_list:list[int]) -> Optional[int]:
 
 list_d = [1, 1, 1, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1]
 print(longest_repetition(list_d))
+
