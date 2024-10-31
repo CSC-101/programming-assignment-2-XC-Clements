@@ -3,7 +3,8 @@ import hw2
 import unittest
 
 from data import Point, Rectangle, Duration, Song
-from hw2 import create_rectangle, shorter_duration_than, running_time, list_of_songs, song_shorter_than, validate_route, linked_cities
+from hw2 import create_rectangle, shorter_duration_than, running_time, list_of_songs, song_shorter_than, validate_route, \
+    linked_cities, longest_repetition, list_d
 
 
 # Write your test cases for each part below.
@@ -43,7 +44,10 @@ class TestCases(unittest.TestCase):
         self.assertEqual(validate_route(linked_cities, ['san luis obispo', 'santa margarita', 'atascadero']), True)
 
     # Part 6
-
+    def test_longest_repetition_1(self):
+        self.assertEqual(longest_repetition(list_d), 8)
+    def test_longest_repetition_2(self):
+        self.assertEqual(longest_repetition([]), None)
 
 
 

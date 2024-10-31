@@ -1,3 +1,5 @@
+from typing import Optional
+
 import data
 from data import Point, Rectangle, Duration, Song
 
@@ -89,4 +91,25 @@ linked_cities = [['san luis obispo', 'santa margarita'],
 print(validate_route(linked_cities, ['san luis obispo', 'atascadero']))
 
 # Part 6
-def
+#takes an input list, and outputs the index at the longest repetition of integers within the list
+def longest_repetition(int_list:list[int]) -> Optional[int]:
+    if int_list != []:
+        longest_repetition_length = 0
+        longest_repetition_index = 0
+        temp_rep_length = 0
+        temp_idx = 0
+        for idx in range(len(int_list) -1):
+            if int_list[idx+1] == int_list[idx]:
+                temp_rep_length += 1
+            if int_list[idx+1] != int_list[idx] or idx == len(int_list) - 2:
+                if longest_repetition_length < temp_rep_length:
+                    longest_repetition_length = temp_rep_length
+                    longest_repetition_index = temp_idx
+                temp_rep_length = 0
+                temp_idx = idx+1
+
+
+        return longest_repetition_index
+
+list_d = [1, 1, 1, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1]
+print(longest_repetition(list_d))
